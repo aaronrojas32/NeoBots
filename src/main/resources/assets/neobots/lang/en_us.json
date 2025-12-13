@@ -1,0 +1,13 @@
+{
+  "itemGroup.neobots": "Example Mod Tab",
+  "block.neobots.example_block": "Example Block",
+  "item.neobots.example_item": "Example Item",
+
+  "neobots.configuration.title": "NeoBots Configs",
+  "neobots.configuration.section.neobots.common.toml": "NeoBots Configs",
+  "neobots.configuration.section.neobots.common.toml.title": "NeoBots Configs",
+  "neobots.configuration.items": "Item List",
+  "neobots.configuration.logDirtBlock": "Log Dirt Block",
+  "neobots.configuration.magicNumberIntroduction": "Magic Number Text",
+  "neobots.configuration.magicNumber": "Magic Number"
+}
