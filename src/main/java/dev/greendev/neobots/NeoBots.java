@@ -2,7 +2,7 @@ package dev.greendev.neobots;
 
 import com.mojang.logging.LogUtils;
 import dev.greendev.neobots.entity.BotEntity;
-import dev.greendev.neobots.entity.ModEntities;
+import dev.greendev.neobots.entity.ModEntity;
 import net.minecraft.world.entity.SpawnPlacementTypes;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.neoforged.bus.api.IEventBus;
@@ -23,7 +23,7 @@ public class NeoBots {
 
     public NeoBots(IEventBus modEventBus) {
         // Register entities
-        ModEntities.register(modEventBus);
+        ModEntity.register(modEventBus);
 
         // Register lifecycle events
         modEventBus.addListener(this::commonSetup);
@@ -37,12 +37,12 @@ public class NeoBots {
     }
 
     private void entityAttributes(EntityAttributeCreationEvent event) {
-        event.put(ModEntities.BOT.get(), BotEntity.createAttributes().build());
+        event.put(ModEntity.BOT.get(), BotEntity.createAttributes().build());
     }
 
     private void spawnPlacements(RegisterSpawnPlacementsEvent event) {
         event.register(
-                ModEntities.BOT.get(),
+                ModEntity.BOT.get(),
                 SpawnPlacementTypes.ON_GROUND,
                 Heightmap.Types.MOTION_BLOCKING_NO_LEAVES,
                 BotEntity::checkMobSpawnRules,

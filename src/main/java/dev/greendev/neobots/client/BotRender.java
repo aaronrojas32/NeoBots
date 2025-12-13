@@ -6,27 +6,32 @@ import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.model.geom.ModelLayers;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.client.renderer.entity.state.PlayerRenderState;
 import net.minecraft.client.resources.DefaultPlayerSkin;
+import net.minecraft.client.resources.PlayerSkin;
 import net.minecraft.resources.ResourceLocation;
 
-/**
- * Renders the bot entity using the player model.
- */
-public class BotRenderer extends MobRenderer<BotEntity, PlayerModel<BotEntity>> {
+public class BotRender extends MobRenderer<BotEntity, PlayerRenderState, PlayerModel> {
 
-    public BotRenderer(EntityRendererProvider.Context context) {
-        super(context, new PlayerModel<>(context.bakeLayer(ModelLayers.PLAYER), false), 0.5F);
+    public BotRender(EntityRendererProvider.Context context) {
+        // En 1.21.8, PlayerModel NO tiene parámetros de tipo
+        super(context, new PlayerModel(context.bakeLayer(ModelLayers.PLAYER), false), 0.5F);
     }
 
     @Override
-    public ResourceLocation getTextureLocation(BotEntity entity) {
-        // Use default Steve skin
-        // You can customize this to use custom skins based on the bot's profile
+    public PlayerRenderState createRenderState() {
+        return new PlayerRenderState();
+    }
+
+    @Override
+    public ResourceLocation getTextureLocation(PlayerRenderState state) {
+        // PlayerRenderState tiene un campo 'skin' de tipo PlayerSkin
+        // Necesitamos extraer el ResourceLocation de PlayerSkin
+        PlayerSkin skin = state.skin;
+        if (skin != null) {
+            return skin.texture();
+        }
+        // Fallback a skin por defecto (Steve)
         return DefaultPlayerSkin.getDefaultTexture();
-    }
-
-    @Override
-    protected void scale(BotEntity entity, PoseStack poseStack, float partialTick) {
-        poseStack.scale(0.9375F, 0.9375F, 0.9375F); // Player scale
     }
 }

@@ -2,7 +2,7 @@ package dev.greendev.neobots.bot;
 
 import com.mojang.authlib.GameProfile;
 import dev.greendev.neobots.entity.BotEntity;
-import dev.greendev.neobots.entity.ModEntities;
+import dev.greendev.neobots.entity.ModEntity;
 import net.minecraft.server.level.ServerLevel;
 
 /**
@@ -33,7 +33,7 @@ public class NeoBot {
         }
 
         // Create the bot entity
-        botEntity = new BotEntity(ModEntities.BOT.get(), level);
+        botEntity = new BotEntity(ModEntity.BOT.get(), level);
 
         // Set position and rotation
         botEntity.setPos(data.getX(), data.getY(), data.getZ());

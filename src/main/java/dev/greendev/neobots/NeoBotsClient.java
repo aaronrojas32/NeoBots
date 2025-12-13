@@ -1,7 +1,7 @@
 package dev.greendev.neobots;
 
-import dev.greendev.neobots.client.BotRenderer;
-import dev.greendev.neobots.entity.ModEntities;
+import dev.greendev.neobots.client.BotRender;
+import dev.greendev.neobots.entity.ModEntity;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -29,6 +29,6 @@ public class NeoBotsClient {
     }
 
     private void registerRenderers(EntityRenderersEvent.RegisterRenderers event) {
-        event.registerEntityRenderer(ModEntities.BOT.get(), BotRenderer::new);
+        event.registerEntityRenderer(ModEntity.BOT.get(), BotRender::new);
     }
 }
