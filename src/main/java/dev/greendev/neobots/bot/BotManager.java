@@ -45,7 +45,7 @@ public class BotManager {
         }
 
         // Get the level where the bot will spawn
-        ServerLevel level = (ServerLevel) source.level();
+        ServerLevel level = source.level();
 
         // Create immutable bot data from source player's position
         BotData data = new BotData(

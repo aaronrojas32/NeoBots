@@ -7,13 +7,7 @@ import java.util.UUID;
  * This class holds identification, spatial, and dimensional information
  * for a bot entity.
  */
-public class BotData {
-
-    private final UUID id;
-    private final String name;
-    private final String dimension;
-    private final double x, y, z;
-    private final float yaw, pitch;
+public record BotData(UUID id, String name, String dimension, double x, double y, double z, float yaw, float pitch) {
 
     /**
      * Constructs a new BotData instance with the specified parameters.
@@ -27,15 +21,7 @@ public class BotData {
      * @param yaw       the horizontal rotation (yaw) of the bot in degrees
      * @param pitch     the vertical rotation (pitch) of the bot in degrees
      */
-    public BotData(UUID id, String name, String dimension, double x, double y, double z, float yaw, float pitch) {
-        this.id = id;
-        this.name = name;
-        this.dimension = dimension;
-        this.x = x;
-        this.y = y;
-        this.z = z;
-        this.yaw = yaw;
-        this.pitch = pitch;
+    public BotData {
     }
 
     /**
@@ -43,7 +29,8 @@ public class BotData {
      *
      * @return the bot's UUID
      */
-    public UUID getId() {
+    @Override
+    public UUID id() {
         return id;
     }
 
@@ -52,7 +39,8 @@ public class BotData {
      *
      * @return the bot's name
      */
-    public String getName() {
+    @Override
+    public String name() {
         return name;
     }
 
@@ -61,7 +49,8 @@ public class BotData {
      *
      * @return the dimension name
      */
-    public String getDimension() {
+    @Override
+    public String dimension() {
         return dimension;
     }
 
@@ -70,7 +59,8 @@ public class BotData {
      *
      * @return the x-coordinate
      */
-    public double getX() {
+    @Override
+    public double x() {
         return x;
     }
 
@@ -79,7 +69,8 @@ public class BotData {
      *
      * @return the y-coordinate
      */
-    public double getY() {
+    @Override
+    public double y() {
         return y;
     }
 
@@ -88,7 +79,8 @@ public class BotData {
      *
      * @return the z-coordinate
      */
-    public double getZ() {
+    @Override
+    public double z() {
         return z;
     }
 
@@ -97,7 +89,8 @@ public class BotData {
      *
      * @return the yaw in degrees
      */
-    public float getYaw() {
+    @Override
+    public float yaw() {
         return yaw;
     }
 
@@ -106,7 +99,8 @@ public class BotData {
      *
      * @return the pitch in degrees
      */
-    public float getPitch() {
+    @Override
+    public float pitch() {
         return pitch;
     }
 }

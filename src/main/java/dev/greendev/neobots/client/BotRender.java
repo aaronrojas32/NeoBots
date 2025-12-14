@@ -1,6 +1,5 @@
 package dev.greendev.neobots.client;
 
-import com.mojang.blaze3d.vertex.PoseStack;
 import dev.greendev.neobots.entity.BotEntity;
 import net.minecraft.client.model.PlayerModel;
 import net.minecraft.client.model.geom.ModelLayers;

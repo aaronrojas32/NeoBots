@@ -36,13 +36,13 @@ public class NeoBot {
         botEntity = new BotEntity(ModEntity.BOT.get(), level);
 
         // Set position and rotation
-        botEntity.setPos(data.getX(), data.getY(), data.getZ());
-        botEntity.setYRot(data.getYaw());
-        botEntity.setXRot(data.getPitch());
+        botEntity.setPos(data.x(), data.y(), data.z());
+        botEntity.setYRot(data.yaw());
+        botEntity.setXRot(data.pitch());
 
         // Set the bot's name and profile
-        botEntity.setBotName(data.getName());
-        botEntity.setGameProfile(new GameProfile(data.getId(), data.getName()));
+        botEntity.setBotName(data.name());
+        botEntity.setGameProfile(new GameProfile(data.id(), data.name()));
 
         // Add to world - this makes it visible to all players
         level.addFreshEntity(botEntity);
