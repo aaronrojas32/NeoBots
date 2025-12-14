@@ -146,8 +146,8 @@ public class BotCommand {
 
         for (NeoBot bot : bots) {
             String botInfo = String.format("  - %s (UUID: %s)",
-                    bot.getData().getName(),
-                    bot.getData().getId().toString()
+                    bot.getData().name(),
+                    bot.getData().id().toString()
             );
             source.sendSuccess(
                     () -> Component.literal(botInfo),

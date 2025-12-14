@@ -41,10 +41,27 @@ public class BotEntity extends PathfinderMob {
                 .add(Attributes.FOLLOW_RANGE, 32.0D);
     }
 
+    /**
+     * Bots can spawn anywhere - used for spawn placement registration.
+     * Signature matches 1.21: uses ServerLevelAccessor, MobCategory, BlockPos, RandomSource.
+     */
+    public static boolean checkMobSpawnRules(
+            EntityType<? extends BotEntity> entityType,
+            ServerLevelAccessor level,
+            MobCategory spawnType,
+            BlockPos pos,
+            RandomSource random) {
+        return true; // Bots can always spawn when commanded
+    }
+
     @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
         super.defineSynchedData(builder);
         builder.define(DATA_NAME, "Bot");
+    }
+
+    public String getBotName() {
+        return this.entityData.get(DATA_NAME);
     }
 
     public void setBotName(String name) {
@@ -53,16 +70,12 @@ public class BotEntity extends PathfinderMob {
         this.setCustomNameVisible(true);
     }
 
-    public String getBotName() {
-        return this.entityData.get(DATA_NAME);
+    public GameProfile getGameProfile() {
+        return this.gameProfile;
     }
 
     public void setGameProfile(GameProfile profile) {
         this.gameProfile = profile;
-    }
-
-    public GameProfile getGameProfile() {
-        return this.gameProfile;
     }
 
     /**
@@ -121,18 +134,5 @@ public class BotEntity extends PathfinderMob {
     @Override
     public boolean removeWhenFarAway(double distanceToClosestPlayer) {
         return false; // Never despawn naturally
-    }
-
-    /**
-     * Bots can spawn anywhere - used for spawn placement registration.
-     * Signature matches 1.21: uses ServerLevelAccessor, MobCategory, BlockPos, RandomSource.
-     */
-    public static boolean checkMobSpawnRules(
-            EntityType<? extends BotEntity> entityType,
-            ServerLevelAccessor level,
-            MobCategory spawnType,
-            BlockPos pos,
-            RandomSource random) {
-        return true; // Bots can always spawn when commanded
     }
 }

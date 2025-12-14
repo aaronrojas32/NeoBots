@@ -1,13 +1,9 @@
 {
-  "itemGroup.neobots": "Example Mod Tab",
-  "block.neobots.example_block": "Example Block",
-  "item.neobots.example_item": "Example Item",
-
-  "neobots.configuration.title": "NeoBots Configs",
-  "neobots.configuration.section.neobots.common.toml": "NeoBots Configs",
-  "neobots.configuration.section.neobots.common.toml.title": "NeoBots Configs",
-  "neobots.configuration.items": "Item List",
-  "neobots.configuration.logDirtBlock": "Log Dirt Block",
-  "neobots.configuration.magicNumberIntroduction": "Magic Number Text",
-  "neobots.configuration.magicNumber": "Magic Number"
+  "entity.neobots.bot": "Bot",
+  "neobots.command.spawn.success": "Bot '%s' spawned successfully",
+  "neobots.command.despawn.success": "Bot '%s' despawned successfully",
+  "neobots.command.list.empty": "No bots are currently active",
+  "neobots.command.list.header": "Active bots (%d):",
+  "neobots.command.error.exists": "A bot with the name '%s' already exists",
+  "neobots.command.error.not_found": "Bot '%s' does not exist"
 }
